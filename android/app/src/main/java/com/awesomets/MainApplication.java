@@ -1,5 +1,5 @@
 package com.awesomets;
-
+import com.oblador.vectoricons.VectorIconsPackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;

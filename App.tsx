@@ -18,6 +18,8 @@ import {View, Text, Button, StyleSheet, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+import AppProvider from './components/Cart/context/ProductContext';
+
 const Stack = createNativeStackNavigator();
 
 const Welcome = ({navigation}) => {
@@ -49,15 +51,17 @@ const Welcome = ({navigation}) => {
 
 function App() {
   return (
-    <NavigationContainer independent={true}>
-      <Stack.Navigator>
-        <Stack.Screen name="Native Nav" component={Welcome} />
-        <Stack.Screen name="Counter App" component={Counter} />
-        <Stack.Screen name="Character Counter" component={Messanger} />
-        <Stack.Screen name="Todo" component={Todo} />
-        <Stack.Screen name="Product" component={ProductContainer} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AppProvider>
+      <NavigationContainer independent={true}>
+        <Stack.Navigator>
+          <Stack.Screen name="Native Nav" component={Welcome} />
+          <Stack.Screen name="Counter App" component={Counter} />
+          <Stack.Screen name="Character Counter" component={Messanger} />
+          <Stack.Screen name="Todo" component={Todo} />
+          <Stack.Screen name="Product" component={ProductContainer} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AppProvider>
   );
 }
 

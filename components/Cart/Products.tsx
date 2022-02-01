@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, Image, TouchableOpacity} from 'react-native';
 import {FlatList, TextInput} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-navigation';
@@ -8,35 +8,11 @@ import {useGlobalContext} from './context/ProductContext';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-function HomeScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
 const Tab = createBottomTabNavigator();
 
 function Product({navigation}) {
-  const {products, cart, amount} = useGlobalContext();
-
-  /* Get product details */
-
-  const addToCart = item => {
-    if (!cart.includes(item)) {
-      cart.push(item);
-    }
-    navigation.navigate('Cart');
-  };
+  const {products, cart, addToCart} = useGlobalContext();
+  const [itemExists, setItemExists] = useState(false);
 
   const ProductList = ({item}) => {
     return (
@@ -123,7 +99,10 @@ function Product({navigation}) {
             </View>
           </View>
           <TouchableOpacity
-            onPress={() => addToCart(item)}
+            onPress={() => {
+              addToCart(item);
+              navigation.navigate('Cart');
+            }}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -146,6 +125,17 @@ function Product({navigation}) {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#ddd'}}>
+      {/* <Text
+        style={{
+          fontSize: 52,
+          marginVertical: 20,
+          marginLeft: 50,
+          color: '#83c5be',
+          fontFamily: 'Roboto',
+          opacity: 0.4,
+        }}>
+        Cycle World
+      </Text> */}
       <FlatList
         data={products}
         renderItem={ProductList}
