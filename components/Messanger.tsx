@@ -71,9 +71,6 @@ const Messanger = () => {
 const styles = StyleSheet.create({
   wrapper: {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 500,
   },
   logo: {
     paddingLeft: 18,
@@ -99,10 +96,13 @@ const styles = StyleSheet.create({
     padding: 20,
     fontSize: 20,
     flex: 3,
+    color: '#222',
   },
   textWrapper: {
     fontSize: 28,
     textAlign: 'center',
+    color: '#222',
+    margin: 20,
   },
   footer: {
     display: 'flex',

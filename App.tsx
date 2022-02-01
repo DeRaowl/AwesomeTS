@@ -11,6 +11,9 @@
 import React from 'react';
 import Counter from './components/Counter';
 import Messanger from './components/Messanger';
+import Todo from './components/Todo';
+// import Product from './components/Cart/Products';
+import ProductContainer from './components/Cart/ProductContainer';
 import {View, Text, Button, StyleSheet, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -30,17 +33,29 @@ const Welcome = ({navigation}) => {
         onPress={() => navigation.navigate('Character Counter')}>
         <Text style={styles.txtComponent}>Character Counter</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.btnConponent}
+        onPress={() => navigation.navigate('Todo')}>
+        <Text style={styles.txtComponent}>Todo</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.btnConponent}
+        onPress={() => navigation.navigate('Product')}>
+        <Text style={styles.txtComponent}>Product</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer independent={true}>
       <Stack.Navigator>
         <Stack.Screen name="Native Nav" component={Welcome} />
         <Stack.Screen name="Counter App" component={Counter} />
         <Stack.Screen name="Character Counter" component={Messanger} />
+        <Stack.Screen name="Todo" component={Todo} />
+        <Stack.Screen name="Product" component={ProductContainer} />
       </Stack.Navigator>
     </NavigationContainer>
   );

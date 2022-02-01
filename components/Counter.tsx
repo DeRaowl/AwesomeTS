@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     minHeight: 500,
     margin: 20,
   },
-  header: {fontSize: 40},
+  header: {fontSize: 40, color: '#222'},
   textContainer: {
     fontSize: 70,
     color: '#222',
