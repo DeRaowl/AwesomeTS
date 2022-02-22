@@ -20,6 +20,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import AppProvider from './components/Cart/context/ProductContext';
 
+import FlatListComponent from './components/FlatList/FlatList';
+
 const Stack = createNativeStackNavigator();
 
 const Welcome = ({navigation}) => {
@@ -45,6 +47,11 @@ const Welcome = ({navigation}) => {
         onPress={() => navigation.navigate('Product')}>
         <Text style={styles.txtComponent}>Product</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.btnConponent}
+        onPress={() => navigation.navigate('FlatList')}>
+        <Text style={styles.txtComponent}>FlatList</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -59,6 +66,7 @@ function App() {
           <Stack.Screen name="Character Counter" component={Messanger} />
           <Stack.Screen name="Todo" component={Todo} />
           <Stack.Screen name="Product" component={ProductContainer} />
+          <Stack.Screen name="FlatList" component={FlatListComponent} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>

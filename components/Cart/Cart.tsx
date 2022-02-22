@@ -98,7 +98,7 @@ function Cart() {
   };
   return (
     <SafeAreaView style={{flex: 1}}>
-      <FlatList data={cart} renderItem={CartItem} />
+      <FlatList data={cart} renderItem={CartItem} extraData={products} />
       <View
         style={{
           display: 'flex',
